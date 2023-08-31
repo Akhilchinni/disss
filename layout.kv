@@ -1,0 +1,132 @@
+ScreenManager:
+    Screen:
+        name: 'Screen1'
+        BoxLayout:
+            orientation: 'vertical'
+            MDBottomNavigation:
+                MDBottomNavigationItem:
+                    name: 'Screen1'
+                    text: "Home"
+                    icon: 'home'
+
+                    MDTextField:
+                        id: imagetext4
+                        multiline: True
+                        text: ""
+                        pos_hint: {'center_x': 0.5, 'center_y': .92}
+                        hint_text: "choose a coffee shop"
+                        size_hint: (None, None)
+                        height: 240
+                        width: 280
+                        font_size: 25
+                        foreground_color: (0, 0.5, 0)
+                        font_name: "comic"
+                        on_focus: if self.focus: app.menu1.open()
+                    MDTextField:
+                        id: imagetext1
+                        multiline: True
+                        text: ""
+                        pos_hint: {'center_x': 0.5, 'center_y': .62}
+                        hint_text: "coffee name and price"
+                        size_hint: (None, None)
+                        height: 240
+                        width: 280
+                        font_size: 25
+                        foreground_color: (0, 0.5, 0)
+                        font_name: "comic"
+                    MDTextField:
+                        id: imagetext5
+                        multiline: True
+                        text: ""
+                        pos_hint: {'center_x': 0.5, 'center_y': .32}
+                        hint_text: "Enter location"
+                        size_hint: (None, None)
+                        height: 240
+                        width: 280
+                        font_size: 25
+                        foreground_color: (0, 0.5, 0)
+                        font_name: "comic"
+                        on_focus: if self.focus: app.menu2.open()
+
+                    MDRectangleFlatButton:
+                        text: "Select"
+                        pos_hint: {'center_x': 0.2, 'center_y': 0.07}
+                        disabled: False
+                        on_press: app.filechooser()
+
+
+                    MDRectangleFlatButton:
+                        text: "Extract"
+                        pos_hint: {'center_x': 0.55, 'center_y': 0.07}
+                        on_release: app.extract_image()
+
+                    MDRectangleFlatButton:
+                        text: "Save"
+                        pos_hint: {'center_x': 0.85, 'center_y': 0.07}
+                        on_release: app.save_buttons()
+
+
+                MDBottomNavigationItem:
+                    name: 'screen 2'
+                    text: "Daily track"
+                    icon: '8tracks'
+
+
+                    MDCard:
+                        id: imagetext2
+                        text: "Akhil"
+                        pos_hint: {'top': 1}
+                        size_hint: None, None
+                        size: 300, dp(500)  # Adjust the size to fit the content
+                        radius: [20, 20, 0, 0]
+                        font_size: 10
+                        foreground_color: (0, 0.65, 0)
+                        font_name: "comic"
+
+                        ScrollView:
+                            size_hint_y: 1
+                            MDLabel:
+                                id: my_label
+                                text: " "   # Replace with your desired text
+                                halign: 'center'
+                                valign: 'middle'  # Align the text vertically in the center
+                                font_size: dp(16)  # Adjust the font size as needed
+                                size_hint_y: None
+                                height: self.texture_size[1]
+
+
+
+
+                MDBottomNavigationItem:
+                    orientation: 'horizontal'
+                    name: 'screen 3'
+                    text: "calender"
+                    icon: 'calendar'
+
+
+
+                    MDCard:
+                        id: imagetext7
+                        text: "Akhil"
+                        pos_hint: {'top': 1}
+                        size_hint: None, None
+                        size: 300, dp(500)  # Adjust the size to fit the content
+                        radius: [20, 20, 0, 0]
+                        font_size: 10
+                        foreground_color: (0, 0.65, 0)
+                        font_name: "comic"
+                        MDIconButton:
+                            icon: "calendar"
+                            foreground_color: (0, 0.5, 0)
+                            on_release: app.date_storer()
+                        ScrollView:
+                            size_hint_y: 1
+                            MDLabel:
+                                id: date_label
+                                text: ""
+                                halign: 'center'
+                                valign: 'middle'  # Align the text vertically in the center
+                                font_size: dp(16)  # Adjust the font size as needed
+                                size_hint_y: None
+                                height: self.texture_size[1]
+
