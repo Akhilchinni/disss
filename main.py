@@ -197,7 +197,6 @@ class YourApp(MDApp):
             cv2.imwrite("bbox.jpg", image)
             recognized_text = pytesseract.image_to_string("bbox.jpg")
             recognized_text = recognized_text.split("\n")
-            print(recognized_text)
             coffee_data = []
             # Extract coffee names and prices
             for obj in recognized_text:
@@ -206,7 +205,6 @@ class YourApp(MDApp):
                     coffee_data.append(coffee_items)
 
             filtered_list = [sublist for sublist in coffee_data if coffee_data]
-            print(filtered_list)
 
             self.formatted_strings = '\n'.join(
                 ' '.join(str(element).strip() for element in obj[0]) for obj in filtered_list)
@@ -217,7 +215,6 @@ class YourApp(MDApp):
                 # Text extraction failed, reset 'formatted_strings'
                 self.extracted_successfully = False
                 self.formatted_strings = ""
-            print(self.formatted_strings)
 
             self.root.ids.imagetext1.text = self.formatted_strings
         except:
@@ -237,7 +234,6 @@ class YourApp(MDApp):
                 self.cursor.execute(sql, val)
                 self.result = self.cursor.fetchall()
                 self.fetch_data(self.result)
-                print(self.result)
             else:
                 toast("please enter the required fields before saving.")
 
@@ -254,7 +250,6 @@ class YourApp(MDApp):
                     self.cursor.execute(sql, val)
                     self.result = self.cursor.fetchall()
                     self.fetch_data(self.result)
-                    print(self.result)
                     # self.root.ids.my_label.text = result
                 else:
                     toast("Please Enter the data before saving")
@@ -283,8 +278,6 @@ class YourApp(MDApp):
 
             # Commit the changes to the database
             self.mydb.commit()
-
-            print("Coffee shop data inserted successfully.")
         except Exception as e:
             print(f"Error occurred: {str(e)}")
 
@@ -317,7 +310,6 @@ class YourApp(MDApp):
             self.cursor.execute(sql, val)
             result = self.cursor.fetchall()
             self.fetch_data(result, history=True)
-            print(result)
         except:
             toast("no data to be shown")
 
